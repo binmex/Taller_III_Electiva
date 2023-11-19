@@ -3,29 +3,30 @@ const route = require('express').Router()
 const fs = require('fs')
 const query = fs.readFileSync('./data.json')
 const temp = JSON.parse(query)
+const lclients = JSON.parse(fs.readFileSync("./clientes.json"))
 var obj=""
 var error=""
 var flag=true
 
 //Routes
 route.get('/', (req, res) => {
-    res.render('index', { title: "Home :: SGRC" })
+    res.render('index', { title: "Bienvenido" })
 })
 route.get('/newEntry', (req, res) => {
-    res.render('insert', { title: "Agregar reserva de auto :: SGRC","error":error, "flag": flag})
+    res.render('insert', { title: "Agregar reserva","error":error, "flag": flag, "lclients":lclients})
 })
 route.get('/searchEntry', (req, res) => {
-    res.render('search', { title: "Buscar reserva de auto :: SGRC", 'temp': temp })
+    res.render('search', { title: "Buscar reservas", 'temp': temp })
 })
 route.get('/editEntry/', (req, res) => {
-    res.render('edit', { title: "Editar reserva de auto :: SGRC", "temp": temp, "obj": obj })
+    res.render('edit', { title: "Editar reservas", "temp": temp, "obj": obj })
 
 })
 route.post('editById/:id',(res,req)=>{    
     res.render('/', { title: "Holi de nuevo", "temp": temp, "obj": obj })
 })
 route.get('/delEntry', (req, res) => {
-    res.render('delete', { title: "Eliminar reserva de auto :: SGRC", "temp": temp })
+    res.render('delete', { title: "Eliminar reserva", "temp": temp })
 })
 route.get('/getBoking/:id',(req,res)=>{
     let id=findBoking(req.params.id)
