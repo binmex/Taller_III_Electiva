@@ -1,0 +1,16 @@
+[
+  {
+    "id": 0,
+    "client": "ALBINO NIÑO",
+    "service": "Pedicure",
+    "booking": "2023-11-17T19:32",
+    "observations": "corte en V modificado"
+  },
+  {
+    "id": 1,
+    "client": "FLAVIO ALEXIS CORREGIDOR CASTRO",
+    "service": "Pedicure",
+    "booking": "2023-11-07T20:54",
+    "observations": "fdsfsd"
+  }
+]

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('./templates/header')%>
+</head>
+
+<body>
+  <%-include('./templates/navBar')%>
+    <div class="container rounded border">
+      <div class="card-header">
+        <h1>Editar Reservacion</h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%if(temp.length > 0){%>
+          <p class="fs-5 ">Hay un total de <strong><%=temp.length-1%></strong> registros</p>
+
+          <table class="table table-striped table-hover bg-light">
+            <thead>
+              <th>Id</th>
+              <th>Persona</th>
+              <th>Servicio</th>
+              <th>Fecha de reserva</th>
+              <th>Observaciones</th>
+            </thead>
+            <tbody>
+              <%temp.forEach(temp =>{%>
+              <tr>
+                <td><%=temp.id%></td>
+                <td><%=temp.client%></td>
+                <td><%=temp.service%></td>
+                <td><%=temp.booking%></td>
+                <td><%=temp.observations%></td>
+              </tr>
+              <%})%>
+            </tbody>
+          </table>
+          <%}else{%>
+          No hay registros
+          <%}%>
+                </div>
+            </div>
+        </div>
+        <%-include('./templates/authors')%>
+          <%-include('./templates/footer')%>
+</body>
+
+
+</html>
