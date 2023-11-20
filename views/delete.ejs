@@ -35,13 +35,12 @@
     <div class="container">
         <div class="container my-5 text-center rounded border border-dark back px-3 py-5">
             <h1 class="text-center">Eliminar prestamo</h1>
-            <hr>
             <p class="fs-5">Eliga por favor su reserva a eliminar.</p>
-            <div class="row text-start">
+            <div class="block text-start">
                 <div class="col-2">
                     <label for="person" class="form-label fs-5">Persona que solicita</label>
                 </div>
-                <div class="col">
+                <div class="block">
                     <select name="person" id="person" class="form-control" onchange="editing()">
                         <option value="Seleccione una opción...">Seleccione una opción...</option>
                         <%temp.forEach(t=>{%>
@@ -50,13 +49,11 @@
                             <%})%>
                     </select>
                 </div>
-            </div>
-            <hr>
             <form action="/deleteData/id" method="post">
-                <div class="row">
+                <div class="block">
                     <input type="hidden" value="<%=temp.id%>" id="id" name="id" class="form-control">
                     <div class="col-4">
-                        <div class="mb-3 text-start">
+                        <div class="mb-3">
                             <label for="persons" class="form-label">Persona que solicita</label>
                             <select name="persons" id="persons" class="form-control" disabled>
                                 <option id="p" value=""><%=temp.client%>
@@ -94,7 +91,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="mb-3 text-start">
-                            <label for="observations" class="form-label">Observaciones adicionales</label>
+                            <label for="observations" class="form-label">Especificaciones</label>
                             <textarea disabled class="form-control" name="observations" id="observations"
                                 rows="4"><%=temp[1].observations%></textarea>
                         </div>

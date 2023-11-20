@@ -47,7 +47,7 @@
             <select name="person" id="person" class="form-control" onchange="editing()">
               <option value="Seleccione una opción...">Seleccione una opción...</option>
               <%temp.forEach(t=>{%>
-              <option value=<%=t.id%>><%=t.id%>/<%=t.client%>/<%=t.service%>
+              <option value=<%=t.id%>><%=t.id%> /<%=t.client%>/<%=t.service%>
               </option>
               <%})%>
             </select>
@@ -55,7 +55,7 @@
         </div>
         <%if(temp[1].id==1){%>
         <form action="/editData/id" method="POST">
-          <div class="row">
+          <div class="block">
             <input type="hidden" value="<%=temp.id%>" id="id" name="id" class="form-control">
             <div class="col-4">
               <div class="mb-3 text-start">
@@ -89,7 +89,7 @@
             <div class="col">
 
               <div class="input-group">
-                <span class="input-group-text">Observaciones</span>
+                <span class="input-group-text">Especificación</span>
                 <textarea class="form-control" aria-label="With textarea" name="observations" id="observations"><%=temp[1].observations%></textarea>
               </div>
             </div>
