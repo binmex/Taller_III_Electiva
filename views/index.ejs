@@ -6,169 +6,82 @@
 
   <body>
     <%-include('./templates/navBar')%>
-    <div class="container">
-      <main class="contenedor sombra">
-        <h2>Mis servicios</h2>
-        <div class="servicios">
-          <section class="servicio">
-            <h3>Diseño web</h3>
-            <div class="iconos">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-palette"
-                width="80"
-                height="80"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="#000000"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 21a9 9 0 1 1 0 -18a9 8 0 0 1 9 8a4.5 4 0 0 1 -4.5 4h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25"
-                />
-                <circle cx="7.5" cy="10.5" r=".5" fill="currentColor" />
-                <circle cx="12" cy="7.5" r=".5" fill="currentColor" />
-                <circle cx="16.5" cy="10.5" r=".5" fill="currentColor" />
-              </svg>
+    <!-- about -->
+    <div id="about" class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <div class="about_box">
+              <span>Bienvenido a Estilo Radiante</span>
+              <h2>Acerca <strong class="white">de nosotros</strong></h2>
+              <p>
+                En Estilo Radiante, no solo transformamos cabellos, sino que
+                creamos experiencias de belleza inolvidables. Somos más que una
+                peluquería; somos un equipo apasionado de estilistas dedicados a
+                realzar tu belleza natural y elevar tu confianza. Nuestro
+                compromiso es brindar servicios excepcionales en un ambiente
+                acogedor y moderno.
+              </p>
             </div>
-
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-              distinctio ipsam voluptatum iure libero
-            </p>
-          </section>
-
-          <section class="servicio">
-            <h3>Aplicaciones web</h3>
-            <div class="iconos">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-brand-android"
-                width="80"
-                height="80"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="#000000"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <line x1="4" y1="10" x2="4" y2="16" />
-                <line x1="20" y1="10" x2="20" y2="16" />
-                <path
-                  d="M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0"
-                />
-                <line x1="8" y1="3" x2="9" y2="5" />
-                <line x1="16" y1="3" x2="15" y2="5" />
-                <line x1="9" y1="18" x2="9" y2="21" />
-                <line x1="15" y1="18" x2="15" y2="21" />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-brand-apple"
-                width="80"
-                height="80"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="#000000"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M9 7c-3 0 -4 3 -4 5.5c0 3 2 7.5 4 7.5c1.088 -.046 1.679 -.5 3 -.5c1.312 0 1.5 .5 3 .5s4 -3 4 -5c-.028 -.01 -2.472 -.403 -2.5 -3c-.019 -2.17 2.416 -2.954 2.5 -3c-1.023 -1.492 -2.951 -1.963 -3.5 -2c-1.433 -.111 -2.83 1 -3.5 1c-.68 0 -1.9 -1 -3 -1z"
-                />
-                <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" />
-              </svg>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <div class="about_img">
+              <figure><img src="img/about_img.png" alt="#" /></figure>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-              distinctio ipsam voluptatum iure libero
-            </p>
-          </section>
-
-          <section class="servicio">
-            <h3>E-Comers</h3>
-            <div class="iconos">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-credit-card"
-                width="80"
-                height="80"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="#000000"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <rect x="3" y="5" width="18" height="14" rx="3" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-                <line x1="7" y1="15" x2="7.01" y2="15" />
-                <line x1="11" y1="15" x2="13" y2="15" />
-              </svg>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-              distinctio ipsam voluptatum iure libero
-            </p>
-          </section>
+          </div>
         </div>
-        <!--cierre secciones-->
-
-        <section>
-          <h2>Contacto</h2>
-
-          <form class="formulario">
-            <fieldset>
-              <legend>Contactame llenando los campos</legend>
-              <div class="contenedor-campos">
-                <div class="campo">
-                  <label>nombre</label>
-                  <input class="input-text" type="text" placeholder="Nombre" />
-                </div>
-
-                <div class="campo">
-                  <label>telefono</label>
-                  <input
-                    class="input-text"
-                    type="tel"
-                    placeholder="Tu telefono"
-                  />
-                </div>
-
-                <div class="campo">
-                  <label>correo</label>
-                  <input
-                    class="input-text"
-                    type="email"
-                    placeholder="tú email"
-                  />
-                </div>
-
-                <div class="campo">
-                  <label for="email">mensaje</label>
-                  <textarea class="input-text"> </textarea>
-                </div>
-              </div>
-              <!--cierre de los contenedre de los campos-->
-
-              <div class="alinear-derecha flex">
-                <input class="boton w-sm-100" type="submit" value="Enviar" />
-              </div>
-            </fieldset>
-          </form>
-        </section>
-      </main>
+      </div>
     </div>
-    <%-include('./templates/authors')%>
-    <%-include('./templates/footer')%>
+    <!-- end about -->
+    <!-- service -->
+    <div id="service" class="service">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="ourheading">
+                <h2>Our<strong class="white_ll"> service</strong></h2>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Cuadros para describir servicios -->
+          <div class="row">
+            <!-- Servicio 1 -->
+            <div class="col-md-4">
+              <div class="service_box">
+                <figure><img src="img/ser.png" alt="Servicio 1" /></figure>
+                <h3>Peluqueria</h3>
+                <p>
+                    Descubre la excelencia en peluquería en Estilo Radiante. Transformamos tu cabello con cortes y estilos modernos, realzando tu belleza y confianza. Vive la experiencia de un servicio único en un ambiente acogedor y vanguardista.
+                </p>
+              </div>
+            </div>
+      
+            <!-- Servicio 2 -->
+            <div class="col-md-4">
+              <div class="service_box">
+                <figure><img src="img/ser1.png" alt="Servicio 2" /></figure>
+                <h3>Barberia</h3>
+                <p>
+                    Sumérgete en la auténtica experiencia de barbería en Estilo Radiante. Nuestros barberos expertos ofrecen cortes precisos y estilos de vanguardia, brindándote un look distintivo y cuidado. Descubre la combinación perfecta de tradición y modernidad en un ambiente masculino y acogedor.
+                </p>
+              </div>
+            </div>
+      
+            <!-- Servicio 3 -->
+            <div class="col-md-4">
+              <div class="service_box">
+                <figure><img src="img/ser3.png" alt="Servicio 3" /></figure>
+                <h3>Pedicure y Manicure</h3>
+                <p>
+                    Disfruta de la exquisitez del cuidado de manos y pies en Estilo Radiante. Nuestros especialistas en pedicure y manicure te ofrecen un servicio dedicado y personalizado para realzar la belleza natural de tus uñas. Sumérgete en un oasis de relajación y estilo, donde la elegancia se refleja en cada detalle de tus manos y pies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <%-include('./templates/authors')%> <%-include('./templates/footer')%>
   </body>
 </html>

@@ -1,10 +1,10 @@
 [
   {
     "id": 0,
-    "client": "ALBINO NIÑO",
+    "client": "FLAVIO ALEXIS CORREGIDOR CASTRO",
     "service": "Pedicure",
-    "booking": "2023-11-17T19:32",
-    "observations": "corte en V modificado"
+    "booking": "2023-11-07T20:54",
+    "observations": "fdsfsd"
   },
   {
     "id": 1,
@@ -12,61 +12,5 @@
     "service": "Pedicure",
     "booking": "2023-11-07T20:54",
     "observations": "fdsfsd"
-  },
-  {
-    "id": 2,
-    "client": "LUDY ANDREA CORONADO ALFONSO",
-    "service": "Manicure",
-    "booking": "2023-11-15T21:35",
-    "observations": "testsan"
-  },
-  {
-    "id": 3,
-    "client": "TALES FIGUEIREDO COTA LELIS",
-    "service": "Depilacion",
-    "booking": "2023-11-29T21:35",
-    "observations": ""
-  },
-  {
-    "id": 4,
-    "client": "ALBINO NIÑO",
-    "service": "Manicure",
-    "booking": "2023-11-29T21:47",
-    "observations": "dasdasdasdasd"
-  },
-  {
-    "id": 5,
-    "client": "JUAN NEPOMUCENO BARBOSA",
-    "service": "Pedicure",
-    "booking": "2023-11-14T21:48",
-    "observations": "dasdasd"
-  },
-  {
-    "id": 6,
-    "client": "BRAYAN RONALDO SANCHEZ GOMEZ",
-    "service": "Pedicure",
-    "booking": "2023-11-21T21:59",
-    "observations": "dfgdfgd"
-  },
-  {
-    "id": 7,
-    "client": "BRAYAN RONALDO SANCHEZ GOMEZ",
-    "service": "Pedicure",
-    "booking": "2023-11-14T22:07",
-    "observations": "weqweqwe"
-  },
-  {
-    "id": 8,
-    "client": "GERMAN RICARDO CORREDOR ROJAS",
-    "service": "Pedicure",
-    "booking": "2023-11-25T22:24",
-    "observations": "dasd desde scrip"
-  },
-  {
-    "id": 9,
-    "client": "DIEGO RICARDO RUBIANO ACEVEDO",
-    "service": "Pedicure",
-    "booking": "2023-11-30T22:24",
-    "observations": "vamos que vamis"
   }
 ]

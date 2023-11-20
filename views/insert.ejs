@@ -29,10 +29,9 @@
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon2">Servicio</span>
             <select name="service" id="service" class="form-control">
-              <option value="Depilacion">Depilacion</option>
-              <option value="Corte de Pelo">Corte de Pelo</option>
-              <option value="Manicure">Manicure</option>
-              <option value="Pedicure">Pedicure</option>
+              <%services.forEach((element)=>{%>
+                <option value="<%-element%>"><%-element%></option>
+              <%})%>
             </select>
           </div>
           <label for="dateDelivery" class="form-label">Fecha de entrega</label>
@@ -54,10 +53,10 @@
 
           <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 1.5rem;">
             <a href="newEntry" class="btn btn-warning"
-              ><i class="fas fa-eraser"></i> Limpiar</a
+              >Limpiar</a
             >
             <button class="btn btn-success" id="addReservation">
-              <i class="fas fa-plus"></i> Realizar reserva
+              Realizar reserva
             </button>
           </div>
         </form>

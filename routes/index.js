@@ -4,6 +4,7 @@ const fs = require('fs')
 const query = fs.readFileSync('./data.json')
 const temp = JSON.parse(query)
 const lclients = JSON.parse(fs.readFileSync("./clientes.json"))
+const services = JSON.parse(fs.readFileSync('services.json'))
 var obj=""
 var error=""
 var flag=true
@@ -13,13 +14,13 @@ route.get('/', (req, res) => {
     res.render('index', { title: "Bienvenido" })
 })
 route.get('/newEntry', (req, res) => {
-    res.render('insert', { title: "Agregar reserva","error":error, "flag": flag, "lclients":lclients})
+    res.render('insert', { title: "Agregar reserva","error":error, "flag": flag, "lclients":lclients,"services":services})
 })
 route.get('/searchEntry', (req, res) => {
     res.render('search', { title: "Buscar reservas", 'temp': temp })
 })
 route.get('/editEntry/', (req, res) => {
-    res.render('edit', { title: "Editar reservas", "temp": temp, "obj": obj })
+    res.render('edit', { title: "Editar reservas", "temp": temp, "obj": obj, "services":services})
 
 })
 route.post('editById/:id',(res,req)=>{    
@@ -65,11 +66,11 @@ route.post('/addBooking', (req, res) => {
 //Edit data
 route.post('/editData/:id',async (req,res)=>{
     await console.log(req.body)
-        const { id,persons, car, dateBooking, observations } = req.body
+        const { id,persons, service, dateBooking, observations } = req.body
         await temp.forEach(t=>{
             if(t.id==id){
                 t.client=persons
-                t.service=car
+                t.service=service
                 t.booking=dateBooking
                 t.observations=observations
             }

@@ -2,111 +2,104 @@
 <html lang="en">
 
 <head>
-    <%-include('./templates/header')%>
-        <script>
-            function editing() {
-                console.log('entro')
-                var valueId = document.getElementById('person').value
-                var z= document.getElementById('id')
-                var client = document.getElementById('p')
-                var service = document.getElementById('c')
-                var da=document.getElementById('dateBooking')
-                var des=document.getElementById('observations')
-                array= "<%=temp.data%>"
-                "<%temp.forEach(t=>{%>"
-                    var aux = "<%=t.id%>"
-                    if(aux==valueId){
-                        obj=valueId
-                        z.value="<%=t.id%>"
-                        client.innerHTML="<%=t.client%>"
-                        client.value="<%=t.client%>"
-                        des.innerHTML="<%=t.observations%>"
-                        da.value="<%=t.booking%>"
-                        service.innerHTML="<%=t.service%>"
-                    }
-                "<%})%>"
-                return valueId
-            }
-        </script>
+  <%-include('./templates/header')%>
+  <script>
+    function editing() {
+      var valueId = document.getElementById('person').value
+      var z = document.getElementById('id')
+      var client = document.getElementById('p')
+      var service = document.getElementById('service')
+      var da = document.getElementById('dateBooking')
+      var des = document.getElementById('observations')
+      array = "<%=temp.data%>"
+      "<%temp.forEach(t=>{%>"
+      var aux = "<%=t.id%>"
+      if (aux == valueId) {
+        obj = valueId
+        z.value = "<%=t.id%>"
+        client.innerHTML = "<%=t.client%>"
+        client.value = "<%=t.client%>"
+        des.innerHTML = "<%=t.observations%>"
+        da.value = "<%=t.booking%>"
+        service.value = "<%t.service%>"
+      }
+      "<%})%>"
+      return valueId
+    }
+  </script>
 </head>
 
 <body>
-    <%-include('./templates/navBar')%>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h1>Editar Reservacion</h1>
+  <%-include('./templates/navBar')%>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1>Editar Reservacion</h1>
+      </div>
+
+      <div class="editInput">
+        <p class="fs-5" style="text-align: center;">Eliga por favor su reserva a editar y seleccione buscar.</p>
+        <div class="row text-start">
+          <div class="col-2">
+            <label for="person" class="form-label fs-5">Reservacion</label>
+          </div>
+          <div class="col">
+            <select name="person" id="person" class="form-control" onchange="editing()">
+              <option value="Seleccione una opción...">Seleccione una opción...</option>
+              <%temp.forEach(t=>{%>
+              <option value=<%=t.id%>><%=t.id%>/<%=t.client%>/<%=t.service%>
+              </option>
+              <%})%>
+            </select>
+          </div>
+        </div>
+        <%if(temp[1].id==1){%>
+        <form action="/editData/id" method="POST">
+          <div class="row">
+            <input type="hidden" value="<%=temp.id%>" id="id" name="id" class="form-control">
+            <div class="col-4">
+              <div class="mb-3 text-start">
+                <label for="persons" class="form-label">Cliente</label>
+                <select name="persons" id="persons" class="form-control">
+                  <option id="p" value=""><%=temp.client%>
+                  </option>
+                </select>
               </div>
-
-              <div class="editInput">
-                <p class="fs-5" style="text-align: center;">Eliga por favor su reserva a editar y seleccione buscar.</p>
-            <div class="row text-start">
-                <div class="col-2">
-                    <label for="person" class="form-label fs-5">Reservacion</label>
-                </div>
-                <div class="col">
-                    <select name="person" id="person" class="form-control" onchange="editing()">
-                        <option value="Seleccione una opción...">Seleccione una opción...</option>
-                        <%temp.forEach(t=>{%>
-                            <option value=<%=t.id%>><%=t.id%> -- <%=t.client%> -- <%=t.service%>
-                            </option>
-                            <%})%>
-                    </select>
-                </div>
             </div>
-            <%if(temp[1].id==1){%>
-                <form action="/editData/id" method="POST">
-                    <div class="row">
-                        <input type="hidden" value="<%=temp.id%>" id="id" name="id" class="form-control">
-                        <div class="col-4">
-                            <div class="mb-3 text-start">
-                                <label for="persons" class="form-label">Cliente</label>
-                                <select name="persons" id="persons" class="form-control">
-                                    <option id="p" value=""><%=temp.client%>
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="mb-3 text-start">
-                                <label for="car" class="form-label">Servicio</label>
-                                <select name="car" id="car" class="form-control">
-                                    <%temp.forEach(temp=>{%>
-                                        <option id="c" value=<%=temp.service%>><%=temp.service%>
-                                        </option>
-                                        <%})%>
+            <div class="col-2">
+              <div class="mb-3 text-start">
+                <label for="car" class="form-label">Servicio</label>
+                <select name="service" id="service" class="form-control">
+                  <%services.forEach(serv=>{%>
+                  <option value=<%=serv%>><%=serv%>
+                  </option>
+                  <%})%>
 
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="mb-3 text-start">
-                                <label for="dateBooking" class="form-label">Fecha de reservacion</label>
-                                <input type="datetime-local" class="form-control" name="dateBooking" id="dateBooking"
-                                    value="<%=temp[1].booking%>">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
+                </select>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="mb-3 text-start">
+                <label for="dateBooking" class="form-label">Fecha de reservacion</label>
+                <input type="datetime-local" class="form-control" name="dateBooking" id="dateBooking" value="<%=temp[1].booking%>">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
 
-                            <div class="input-group">
-                                <span class="input-group-text">Observaciones</span>
-                                <textarea
-                                  class="form-control"
-                                  aria-label="With textarea"
-                                  name="observations"
-                                  id="observations"
-                                ><%=temp[1].observations%></textarea>
-                              </div>
-                        </div>
-                    </div>
-                    <%}else{%>
-                        <div class="alert alert-danger alert-dismissible fade show text-center fs-5" role="alert">
-                            <p class=""><i class="fas fas-alert"></i> No hay resultados para su busqueda</p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    <%}%>
+              <div class="input-group">
+                <span class="input-group-text">Observaciones</span>
+                <textarea class="form-control" aria-label="With textarea" name="observations" id="observations"><%=temp[1].observations%></textarea>
+              </div>
+            </div>
+          </div>
+          <%}else{%>
+          <div class="alert alert-danger alert-dismissible fade show text-center fs-5" role="alert">
+            <p class=""><i class="fas fas-alert"></i> No hay resultados para su busqueda</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <%}%>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 1rem;">
                             <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i> Editar</button>
                         </div>
@@ -115,7 +108,7 @@
         </div>
     </div>
     <%-include('./templates/authors')%>
-    <%-include('./templates/footer')%>
+          <%-include('./templates/footer')%>
 </body>
 
 </html>
