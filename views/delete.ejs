@@ -1,108 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%-include('./templates/header')%>
-        <script>
-                function editing() {
-                    console.log('entro')
-                    var valueId = document.getElementById('person').value
-                    var z= document.getElementById('id')
-                    var client = document.getElementById('p')
-                    var service = document.getElementById('c')
-                    var da=document.getElementById('dateBooking')
-                    var des=document.getElementById('observations')
-                    array= "<%=temp.data%>"
-                    "<%temp.forEach(t=>{%>"
-                        var aux = "<%=t.id%>"
-                        if(aux==valueId){
-                            obj=valueId
-                            z.value="<%=t.id%>"
-                            client.innerHTML="<%=t.client%>"
-                            client.value="<%=t.client%>"
-                            des.innerHTML="<%=t.observations%>"
-                            da.value="<%=t.booking%>"
-                            service.innerHTML="<%=t.service%>"
-                        }
-                    "<%})%>"
-                    return valueId
-                }
-        </script>
-    </head>
-    <body>
-        <%-include('./templates/navBar')%>
-        <div class="container">
-            <div class="container my-5 text-center rounded border border-dark back px-3 py-5">
-                <h1 class="text-center">Eliminar prestamo</h1>
-                <h2 class="fs-5">Eliga por favor su reserva a eliminar.</h2>
-                <div class="block text-start">
-                    <div class="col-2">
-                        <label for="person" class="form-label fs-5">Persona que solicita</label>
-                    </div>
+
+<head>
+    <%-include('./templates/header')%>
+    <%-include('./templates/navBar')%>
+    <script>
+        window.onload = function () {
+            limpiarCampos();
+        };
+
+        function limpiarCampos() {
+            var idCampo = document.getElementById('id');
+            var personsCampo = document.getElementById('persons');
+            var serviceCampo = document.getElementById('service');
+            var dateBookingCampo = document.getElementById('dateBooking');
+
+            idCampo.value = '';
+            personsCampo.value = '';
+            serviceCampo.value = '';
+            dateBookingCampo.value = '';
+        }
+
+        function editing() {
+            var valueId = document.getElementById('person').value
+            var z = document.getElementById('id')
+            var client = document.getElementById('p')
+            var service = document.getElementById('c')
+            var dateBooking  = document.getElementById('dateBooking')
+            array = "<%=temp.data%>"
+            "<%temp.forEach(t=>{%>"
+            var aux = "<%=t.id%>"
+            if (aux == valueId) {
+                obj = valueId
+                z.value = "<%=t.id%>"
+                client.innerHTML = "<%=t.client%>"
+                client.value = "<%=t.client%>"
+                dateBooking.value = "<%=t.booking%>"
+                service.innerHTML = "<%=t.service%>"
+            }
+            "<%})%>"
+            return valueId
+        }
+        function checkForm() {
+            var client = document.getElementById('persons').value;
+            var service = document.getElementById('service').value;
+            var dateBooking = document.getElementById('dateBooking').value;
+            var acceptTerms = document.getElementById('acceptTerms').checked;
+
+            var allFieldsCompleted = client !== '' && service !== '' && dateBooking !== '' && acceptTerms;
+            document.getElementById('deleteReservation') = !allFieldsCompleted;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>¡Hola! Elimina Tu Reserva</h1>
+            </div>
+            <p class="fs-5" style="margin-top: 1rem">
+                Por favor, elige la reserva que deseas eliminar.
+                <br>¡Te esperamos pronto!
+            </p>
+            <div class="deleteInput">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Reservación</span>
+                    <select name="person" id="person" class="form-control" onchange="editing()">
+                        <option disabled selected style="display:none;">¡Seleccione Una Opción!</option>
+                        <%temp.forEach(t=>{%>
+                            <option value=<%=t.id%>><%=t.id%> /<%=t.client%>/<%=t.service%>
+                            </option>
+                        <%})%>
+                    </select>
+                </div>
+                <form action="/deleteData/id" method="POST">
                     <div class="block">
-                        <select name="person" id="person" class="form-control" onchange="editing()">
-                            <option value="Seleccione una opción...">Seleccione una opción...</option>
-                            <%temp.forEach(t=>{%>
-                                <option value=<%=t.id%>><%=t.id%> -- <%=t.client%> -- <%=t.service%>
-                                </option>
-                                <%})%>
-                        </select>
-                    </div>
-                <form action="/deleteData/id" method="post">
-                    <div class="block">
-                        <input type="hidden" value="<%=temp.id%>" id="id" name="id" class="form-control">
-                        <div class="col-4">
-                            <div class="mb-3">
-                                <label for="persons" class="form-label">Persona que solicita</label>
-                                <select name="persons" id="persons" class="form-control" disabled>
-                                    <option id="p" value=""><%=temp.client%>
+                        <div class="mb-3 text-start">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">Cliente</span>
+                                <input type="hidden" value="<%=temp.id%>" id="id" name="id" class="form-control">
+                                <select name="persons" id="persons" class="form-control">
+                                    <option id="p" value="<%= temp.client %>">
+                                        <%= temp.client %>
                                     </option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-2">
-                            <div class="mb-3 text-start">
-                                <label for="car" class="form-label">Auto que solicita</label>
-                                <select name="car" id="car" class="form-control" disabled>
-                                    <%temp.forEach(temp=>{%>
-                                        <option id="c" value=<%=temp.service%>><%=temp.service%>
-                                        </option>
-                                        <%})%>
-
-                                </select>
+                        <div class="mb-3 text-start">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">Servicio</span>                                
+                                <select name="service" id="service" class="form-control">
+                                    <option id="c" value="<%= temp.service %>">
+                                        <%= temp.service %>
+                                    </option>
+                                </select>                                   
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="mb-3 text-start">
-                                <label for="dateBooking" class="form-label">Fecha de préstamo</label>
-                                <input disabled type="datetime-local" class="form-control" name="dateBooking" id="dateBooking"
-                                    value="<%=temp[1].booking%>">
+                                <label for="dateBooking" class="form-label">Fecha De Reserva:</label>
+                                <input type="datetime-local" class="form-control" name="dateBooking" id="dateBooking"
+                                    value="<%=temp[0].booking%>">
                             </div>
+                        </div>                                                
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-danger">
+                                Eliminar Reserva
+                            </button>
                         </div>
-                        <div class="col-3">
-                            <div class="mb-3 text-start">
-                                <label for="dateDelivery" class="form-label">Fecha de entrega</label>
-                                <input disabled type="datetime-local" class="form-control" name="dateDelivery" id="dateDelivery"
-                                    value="<%=temp[1].delivery%>">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3 text-start">
-                                <label for="observations" class="form-label">Especificaciones</label>
-                                <textarea disabled class="form-control" name="observations" id="observations"
-                                    rows="4"><%=temp[1].observations%></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="submit" class="btn btn-danger">Eliminar reserva</button>
                     </div>
                 </form>
-                <hr>
             </div>
         </div>
         <%-include('./templates/authors')%>
         <%-include('./templates/footer')%>
-    </body>
+</body>
 </html>

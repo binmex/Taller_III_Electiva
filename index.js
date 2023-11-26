@@ -16,11 +16,7 @@ app.set('view engine','ejs')
 
 app.use(express.urlencoded({extended:false}));
 
-
 //middleware
 app.use('/',require('./routes/index'))
-
-
-
 
 app.listen(app.get('port'),()=>console.log(`Listen ${app.get('port')}`))

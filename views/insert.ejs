@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%-include('./templates/header')%>
-  </head>
-  <body>
+<head>
+  <%-include('./templates/header')%>
     <%-include('./templates/navBar')%>
-    <div class="container">
-      <div class="card">
-        <div class="card-header">
-          <h1>Realizar Reservacion</h1>
-        </div>
-        <p class="fs-5" style="text-align: center; margin-top: 1rem;">
-          Ingrese por favor los datos a continuación para realizar su reserva.
-        </p>
-        <form class="formInput">
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"
-              >Persona que reserva</span
-            >
-            <select name="clients" id="persons" class="form-control">
-              <option value="">Seleccione una opción...</option>
-              <% lclients.forEach((element)=>{%>
-                <option value="<%= element %>"><%= element %></option>
-            <% }) %>
-            </select>
-          </div>
+      <script defer src="/script.js"></script>
+      <script>
+        function checkForm() {
+          var client = document.getElementById('persons').value;
+          var service = document.getElementById('service').value;
+          var dateBooking = document.getElementById('dateBooking').value;
+          var observations = document.getElementById('observations').value;
+          var allFieldsCompleted = client !== '' && service !== '' && dateBooking !== '' && observations !== '';
+          document.getElementById('addReservation').disabled = !allFieldsCompleted;
+        }
+        function validateForm() {
+          var client = document.getElementById('persons').value;
+          var service = document.getElementById('service').value;
+          var dateBooking = document.getElementById('dateBooking').value;
+          var observations = document.getElementById('observations').value;
 
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon2">Servicio</span>
-            <select name="service" id="service" class="form-control">
-              <%services.forEach((element)=>{%>
-                <option value="<%-element%>"><%-element%></option>
-              <%})%>
-            </select>
-          </div>
-          <label for="dateDelivery" class="form-label">Fecha de entrega</label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            name="dateBooking"
-            id="dateBooking"
-          />
-          <div class="input-group" style="margin-top: 1rem;">
-            <span class="input-group-text">Observaciones</span>
-            <textarea
-              class="form-control"
-              aria-label="With textarea"
-              name="observations"
-              id="observations"
-            ></textarea>
-          </div>
-
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 1.5rem;">
-            <a href="newEntry" class="btn btn-warning"
-              >Limpiar</a
-            >
-            <button class="btn btn-success" id="addReservation">
-              Realizar reserva
-            </button>
-          </div>
-        </form>
+          if (client === '' || service === '' || dateBooking === '' || observations === '') {
+            alert('Por favor, complete todos los campos antes de realizar la reserva.');
+            return false;
+          }
+          return true;
+        }
+      </script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1>¡Hola! Realiza Una Reservación</h1>
       </div>
+      <p class="fs-5" style="margin-top: 1rem">
+        Por favor, ingrese los siguientes datos para completar su reserva.
+      </p>
+      <form class="formInput" onsubmit="return validateForm()">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Titular De La Reservación</span>
+          <select name="clients" id="persons" class="form-control">
+            <option disabled selected style="display:none;">¡Seleccione Un Usuario!</option>
+            <% lclients.forEach((element)=>{%>
+              <option value="<%= element %>">
+                <%= element %>
+              </option>
+              <% }) %>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon2">Servicio</span>
+          <select name="service" id="service" class="form-control">
+            <option disabled selected style="display:none;">¡Seleccione Un Servicio!</option>
+            <%services.forEach((element)=>{%>
+              <option value="<%-element%>"><%-element%></option>
+              <%})%>
+          </select>
+        </div>
+        <label for="dateDelivery" class="form-label">Fecha Del Servicio</label>
+        <input type="datetime-local" class="form-control" name="dateBooking" id="dateBooking" />
+        <div class="input-group" style="margin-top: 1rem;">
+          <span class="input-group-text">Observaciones</span>
+          <textarea class="form-control" aria-label="With textarea" name="observations" id="observations"></textarea>
+        </div>
+        <div class="form-check" style="margin-top: 1rem;">
+          <input class="form-check-input" type="checkbox" id="acceptTerms" onchange="checkForm()">
+          <label class="form-check-label" for="acceptTerms">
+            Acepta El Tratamiento De Datos Personales
+          </label>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 1.5rem;">
+          <a href="newEntry" class="btn btn-warning">Limpiar</a>
+          <button type="submit" class="btn btn-success" id="addReservation" disabled><i class="fas fa-edit"></i>
+            Realizar reserva
+          </button>
+        </div>
+      </form>
     </div>
-    <%-include('./templates/authors')%>
+  </div>
+  <%-include('./templates/authors')%>
     <%-include('./templates/footer')%>
-    <script src="/script.js"></script>
-  </body>
+</body>
 </html>

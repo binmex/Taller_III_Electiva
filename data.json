@@ -1,16 +1,44 @@
 [
   {
-    "id": 0,
-    "client": "FLAVIO ALEXIS CORREGIDOR CASTRO",
-    "service": "Pedicure",
-    "booking": "2023-11-07T20:54",
-    "observations": "fdsfsd"
-  },
-  {
     "id": 1,
     "client": "FLAVIO ALEXIS CORREGIDOR CASTRO",
     "service": "Pedicure",
     "booking": "2023-11-07T20:54",
-    "observations": "fdsfsd"
+    "observations": "Básico"
+  },
+  {
+    "id": 2,
+    "client": "GUSTAVO VARGAS RINCON",
+    "service": "Corte de cabello",
+    "booking": "2023-11-17T13:57",
+    "observations": "Con Barba"
+  },
+  {
+    "id": 3,
+    "client": "FRANCISCO JAVIER SANCHEZ VALENZUELA",
+    "service": "Corte de cabello",
+    "booking": "2023-11-21T14:59",
+    "observations": "Solo puntas"
+  },
+  {
+    "id": 4,
+    "client": "CARLOS PARADA",
+    "service": "Manicure",
+    "booking": "2023-12-01T17:38",
+    "observations": "Con Esmalte Transparente!"
+  },
+  {
+    "id": 5,
+    "client": "FABIAN ANDRES CASTRO",
+    "service": "Pedicure",
+    "booking": "2023-11-28T18:47",
+    "observations": "Básico"
+  },
+  {
+    "id": 6,
+    "client": "BRAYAN RONALDO SANCHEZ GOMEZ",
+    "service": "Barbería",
+    "booking": "2023-12-07T19:17",
+    "observations": "Voy con el tiempo justo!"
   }
 ]
