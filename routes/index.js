@@ -93,5 +93,37 @@ route.post('/deleteData/:id', async (req, res) => {
     res.redirect('/');
 });
 
+// Endpoint para manejar la solicitud AJAX para agregar una reserva
+route.post('/api/addBooking', (req, res) => {
+    const { clients, service, dateBooking, observations } = req.body;
+    const id = temp[temp.length - 1].id + 1;
+    const data = {
+        'id': id,
+        'client': clients,
+        'service': service,
+        'booking': dateBooking,
+        'observations': observations
+    };
+    
+    // Validar los datos
+    flag = true;
+    temp.forEach(temp => {
+        if (dateBooking == temp["booking"] && clients == temp["client"]) {
+            flag = false;
+        }
+    });
+
+    if (flag != false) {
+        // Escribir los datos
+        temp.push(data);
+        fs.writeFileSync('./data.json', JSON.stringify(temp, null, 2));
+        // Enviar una respuesta JSON indicando éxito
+        res.json({ success: true, message: "Reserva realizada con éxito" });
+    } else {
+        // Enviar una respuesta JSON indicando un error
+        res.status(400).json({ success: false, message: "Lo sentimos, ya existe una reserva activa para este cliente en esta fecha y hora." });
+    }
+});
+
 
 module.exports = route,temp;

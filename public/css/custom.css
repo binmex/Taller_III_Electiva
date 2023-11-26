@@ -33,9 +33,13 @@ body {
     padding: 2rem;
 }
 
+.navbar-brand {
+    font-family: 'serif';
+}
+
 .authors {
     margin-top: 2rem;
-    background-color: #343a40; /* Color de fondo oscuro */
+    background-color: #597fa5; /* Color de fondo oscuro */
     color: #ffffff; /* Color del texto claro */
     text-align: center; /* Texto centrado */
     padding: 20px; /* Relleno en la parte superior e inferior */
@@ -56,10 +60,12 @@ body {
 /*tipografia*/
 h1 {
     font-size: 3.8rem;
+    font-family: 'Times New Roman', serif;
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 2.0rem;
+    font-family: 'Times New Roman', serif;
 }
 
 h3 {
@@ -72,11 +78,23 @@ h3 {
     text-align: center;
 }
 
+p {
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
 /*titulos*/
 /*1 rem = 10px*/
 .titulo span {
-    font-size: 2rem;
+    color: #213343;
+    display: block; /* Para que el texto ocupe todo el ancho */
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold; /* Aplicar negrita */
+    font-family: 'Times New Roman', serif;
 }
+
 
 /*servicios*/
 @media (min-width: 760px) {
@@ -195,14 +213,15 @@ h3 {
     display: block;
 }
 .about .about_box h2 {
-    font-size: 50px;
+    color: #213343;
+    font-size: 35px;
     line-height: 50px;
     font-weight: 500;
     padding: 0;
 }
 .about .about_box p {
-    color: #000;
-    font-size: 17px;
+    color: #213343;
+    font-size: 20px;
     line-height: 29px;
     padding: 30px 0px;
     font-weight: 400;
