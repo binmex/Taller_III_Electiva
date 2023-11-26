@@ -47,7 +47,7 @@ route.post('/addBooking', (req, res) => {
     //validate the data
     flag = true
     temp.forEach(temp => {
-        if (dateBooking == temp["booking"] && car == temp["client"]) {
+        if (dateBooking == temp["booking"]) {
             flag = false
         }
     })
@@ -80,7 +80,7 @@ route.post('/editData/:id',async (req,res)=>{
 })
 
 route.post('/deleteData/:id', async (req, res) => {
-    const { id, persons, car, dateBooking, dateDelivery, observations } = req.body;
+    const { id, persons, dateBooking,observations } = req.body;
 
     await temp.forEach((t, index) => {
         if (t.id == id) {
