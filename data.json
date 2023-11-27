@@ -40,5 +40,12 @@
     "service": "Barbería",
     "booking": "2023-12-07T19:17",
     "observations": "Voy con el tiempo justo!"
+  },
+  {
+    "id": 7,
+    "client": "WILIAM ISRAEL LEON ROJAS",
+    "service": "Corte de cabello",
+    "booking": "2023-12-02T12:00",
+    "observations": "Corte #7, con el Barbero Camilo Hernandez, gracias!"
   }
 ]
