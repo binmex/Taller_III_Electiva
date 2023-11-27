@@ -9,3 +9,5 @@ Práctica: Implementación del motor de plantillas EJS
 - Robinson Aguilar
 - Ronaldo Perez
 
+###La documentacion esta en el archivo:
+- Taller de JavaScript EJS.pdf
